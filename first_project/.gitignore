@@ -2,3 +2,6 @@ first_project/__pycache__
 first_project/__init__.py
 website_api/__pycache__
 website_api/migrations/__init__.py
+learning_model_with_django/migrations/__pycache__
+learning_model_with_django/migrations/__init__.py
+learning_model_with_django/__pycache__
