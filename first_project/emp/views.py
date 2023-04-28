@@ -32,3 +32,8 @@ def add_emp(request):
         print("data is coming ")
         return redirect("/employee")
     return render(request,"emp/add_emp.html",{})
+
+def del_emp(request,emp_id):
+    emp=Emp.objects.get(pk=emp_id)
+    emp.delete()
+    return redirect("/employee")

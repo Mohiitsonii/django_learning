@@ -15,50 +15,48 @@
     {%include './navbar.html'%}
     <h1 class="text-center">Employee Managament!</h1>
     <h1 class="text-center">List of Employee</h1>
-    <div class="conatiner">
+    <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <div class="card-body">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>#SNo.</th>
-                  <th>Name</th>
-                  <th>Employee Id</th>
-                  <th>Phone</th>
-                  <th>Working</th>
-                  <th>Department</th>
-                  <th>Address</th>
-                </tr>
-              </thead>
-              <tbody>
-                {%for e in emps%}
-                <tr>
-                  <td>
-                    {{e.id}}
-                  </td>
-                  <td>
-                    {{e.name}}
-                  </td>
-                  <td>
-                    {{e.emp_id}}
-                  </td>
-                  <td>
-                    {{e.phone}}
-                  </td>
-                  <td>
-                    {{e.working}}
-                  </td>
-                  <td>
-                    {{e.department}}
-                  </td>
-                  <td>
-                    {{e.address}}
-                  </td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
+          <div class="card">
+            <div class="card-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>#SNo.</th>
+                    <th>Name</th>
+                    <th>Employee Id</th>
+                    <th>Phone</th>
+                    <th>Working</th>
+                    <th>Department</th>
+                    <th>Address</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {%for e in emps%}
+                  <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{e.name}}</td>
+                    <td>{{e.emp_id}}</td>
+                    <td>{{e.phone}}</td>
+                    <td>{{e.working}}</td>
+                    <td>{{e.department}}</td>
+                    <td>{{e.address}}</td>
+                    <td>
+                      <a
+                        href="delete-emp/{{e.id}}"
+                        class="btn btn-danger btn-sm"
+                      >
+                        Delete
+                      </a>
+                      <a class="btn btn-dark btn-sm"> Update </a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
