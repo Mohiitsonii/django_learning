@@ -18,7 +18,7 @@
         <div class="col-md-6 offset-md-3">
           <div class="card bg-dark text-white">
             <div class="card-body">
-              <form action="add-emp" method="POST">
+              <form action="/employee/do-update-emp/{{emp.id}}" method="POST">
                 {% csrf_token %}
                 <div class="mb3">
                   <label for="name">Employee Name</label>
@@ -28,6 +28,7 @@
                     class="form-control"
                     placeholder="Enter Emp name"
                     name="emp_name"
+                    value="{{emp.name}}"
                   />
                 </div>
                 <div class="mb3">
@@ -38,6 +39,7 @@
                     class="form-control"
                     placeholder="Enter Emp name"
                     name="emp_id"
+                    value={{emp.emp_id}}
                   />
                 </div>
                 <div class="mb3">
@@ -48,6 +50,7 @@
                     class="form-control"
                     placeholder="Enter Emp name"
                     name="emp_phone"
+                    value={{emp.phone}}
                   />
                 </div>
                 <div class="mb3">
@@ -57,7 +60,8 @@
                     name="emp_address"
                     id="address"
                     rows="3"
-                  ></textarea>
+                    value={{emp.address}}
+                  >{{emp.address}}</textarea>
                 </div>
                 <div class="mb3 form-check">
                   <label for="check">Working</label>
@@ -66,6 +70,9 @@
                     class="form-check-input"
                     name="emp_status"
                     id="check"
+                    {% if emp.working %}
+                    checked
+                    {% endif %}
                   />
                 </div>
                 <div class="mb3">
@@ -81,7 +88,7 @@
                   </select>
                 </div>
                 <div class="contianer text-center my-3">
-                  <button class="btn btn-primary">Add Employee</button>
+                  <button class="btn btn-primary">Update Employee</button>
                 </div>
               </form>
             </div>
